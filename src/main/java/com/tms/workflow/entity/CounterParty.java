@@ -13,7 +13,6 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.hibernate.envers.Audited;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import lombok.Data;
 
@@ -33,15 +32,13 @@ public class CounterParty {
 	String aladdinCode;
 	String approvedBy;
 	
-	@JsonBackReference(value="cp-marketdata")
+	
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
 	List<MarketData> marketDataSet;
 	
-	@JsonBackReference(value="cp-rating")
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
 	List<MarketRating> ratingSet;
 	
-	@JsonBackReference(value="cp-limit")
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
 	List<CounterPartyLimit> limitSet;
 	

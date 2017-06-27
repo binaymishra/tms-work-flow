@@ -12,7 +12,6 @@ import javax.persistence.Table;
 
 import org.hibernate.envers.Audited;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.Data;
 
@@ -33,7 +32,6 @@ public class MarketRating {
 	
 	@ManyToOne
 	@JoinColumn(name = "cp_id")
-	@JsonManagedReference("cp-rating")
 	CounterParty counterParty;
 
 }
