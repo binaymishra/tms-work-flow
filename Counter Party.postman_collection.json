@@ -1,0 +1,133 @@
+{
+	"id": "9ebec396-c080-330b-7060-74d75e6aa058",
+	"name": "Counter Party",
+	"description": "",
+	"order": [
+		"70cad060-feb6-0d99-8856-7a8ad698d2e4",
+		"1b086e3c-dcac-f07d-77f2-bc8279b7bb41",
+		"28041232-6be5-5b50-7ee4-5129fcf113c3",
+		"7f7533fd-9d54-abac-8f64-e6fbe2e0ec4b"
+	],
+	"folders": [],
+	"timestamp": 1498530403183,
+	"owner": "2294294",
+	"public": false,
+	"requests": [
+		{
+			"id": "1b086e3c-dcac-f07d-77f2-bc8279b7bb41",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/counterparty/11",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PATCH",
+			"collectionId": "9ebec396-c080-330b-7060-74d75e6aa058",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:3000/counterparty/11",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498530428831,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\n\t\"status\":\"approved\",\n\t\"approvedBy\":\"bm@db.com\"\n}"
+		},
+		{
+			"id": "28041232-6be5-5b50-7ee4-5129fcf113c3",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/counterparty",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "9ebec396-c080-330b-7060-74d75e6aa058",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:3000/counterparty",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498530435919,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\"name\":\"Deutsche Bank\",\n\t\"aladdinCode\":\"BNK011\",\n\t\"status\":\"pending\"\n}"
+		},
+		{
+			"id": "70cad060-feb6-0d99-8856-7a8ad698d2e4",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:3000/counterparty",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "9ebec396-c080-330b-7060-74d75e6aa058",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:3000/counterparty",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498530423252,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "7f7533fd-9d54-abac-8f64-e6fbe2e0ec4b",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:3000/counterparty/11",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "PATCH",
+			"collectionId": "9ebec396-c080-330b-7060-74d75e6aa058",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:3000/counterparty/11",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1498530443455,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\t\n\t\"status\":\"approved\",\n\t\"approvedBy\":\"bm@db.com\"\n}"
+		}
+	]
+}
