@@ -1,14 +1,15 @@
 package com.tms.workflow;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
+import org.springframework.http.ResponseEntity;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,10 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tms.workflow.entity.CounterParty;
-import com.tms.workflow.entity.CounterPartyLimit;
-import com.tms.workflow.model.CounterPartyModel;
-import com.tms.workflow.repo.CounterPartyRepository;
-import com.tms.workflow.repo.CounterPartyRevisionRepository;
+import com.tms.workflow.model.CounterPartyRequest;
+import com.tms.workflow.model.CounterPartyResponse;
+import com.tms.workflow.service.CounterPartyService;
 
 @RestController
 @RequestMapping("/counterparty")
@@ -30,22 +30,36 @@ public class CounterPartyController {
 	static final ExecutorService executor = Executors.newFixedThreadPool(1);
 
 	@Autowired
-	CounterPartyRepository repository;
-
-	@Autowired
-	CounterPartyRevisionRepository revisionRepository;
-
+	CounterPartyService service;
 
 	@PostMapping
-	@ResponseBody CounterParty createCounterParty(@RequestBody CounterParty counterParty){
-		//default create status is 'pending'
-		List<CounterPartyLimit> limits = counterParty.getLimits();
-			final CounterParty cp = repository.save(counterParty); // saving counterparty data.
-		if(!CollectionUtils.isEmpty(limits)){
-			limits.forEach(l -> {l.setCounterParty(cp);});
-		}
-		counterParty.setLimits(limits);
-		return counterParty = repository.save(counterParty);
+	@ResponseBody ResponseEntity<CounterPartyResponse> createCounterParty(@RequestBody CounterPartyRequest counterParty){
+		if(Objects.isNull(counterParty.getCounterParty()))
+				return ResponseEntity.badRequest().build();
+		return ResponseEntity.ok(new CounterPartyResponse(service.add(counterParty.getCounterParty()).get()));
+	}
+
+	@GetMapping
+	@ResponseBody ResponseEntity<CounterPartyResponse> findAllCounterParties(@RequestParam(value = "status", required=false) String status){
+		List<CounterParty> counterParties;
+		if(StringUtils.isEmpty(status))
+			counterParties = service.findAll();
+		else
+			counterParties = service.findAll(status);
+		return counterParties.isEmpty() ? ResponseEntity.notFound().build() : ResponseEntity.ok(new CounterPartyResponse(counterParties));
+	}
+
+	@GetMapping("/{cpId}")
+	ResponseEntity<CounterPartyResponse> findOneCounterParty(@PathVariable("cpId") Long id){
+		Optional<CounterParty> cp = service.findOne(id);
+		if(cp.isPresent())
+			return ResponseEntity.ok(new CounterPartyResponse(cp.get()));
+		return ResponseEntity.notFound().build();
+	}
+
+	/*@GetMapping("/revision/{cpId}")
+	@ResponseBody List<CounterParty> findCounterPartyRevisions(@PathVariable("cpId") Long cpId){
+		return revisionRepository.finCounterPartyRevisions(cpId);
 	}
 
 	@PatchMapping("/{id}")
@@ -61,23 +75,7 @@ public class CounterPartyController {
 		activete.setStatus("active");
 		executor.submit(()-> repository.save(activete));
 
-	}
-
-	@GetMapping
-	@ResponseBody List<CounterParty> findAllCounterParties(@RequestParam(value = "status", required=false) String status){
-		List<CounterParty> counterParties;
-		if(StringUtils.isEmpty(status))
-			 counterParties = repository.findAll();
-		else
-			counterParties = repository.findBystatus(status);
-		return counterParties;
-	}
-
-	@GetMapping("/revision/{cpId}")
-	@ResponseBody List<CounterParty> findCounterPartyRevisions(@PathVariable("cpId") Long cpId){
-		return revisionRepository.finCounterPartyRevisions(cpId);
-	}
-
+	}*/
 
 
 }
