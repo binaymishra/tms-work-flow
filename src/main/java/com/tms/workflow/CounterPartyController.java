@@ -46,7 +46,6 @@ public class CounterPartyController {
 		}
 		counterParty.setLimits(limits);
 		return counterParty = repository.save(counterParty);
-
 	}
 
 	@PatchMapping("/{id}")
@@ -71,7 +70,6 @@ public class CounterPartyController {
 			 counterParties = repository.findAll();
 		else
 			counterParties = repository.findBystatus(status);
-		//List<CounterPartyModel>  counterPartyModels = helper.counterPartyMapper(counterParties);
 		return counterParties;
 	}
 
