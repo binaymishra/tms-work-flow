@@ -10,37 +10,19 @@ import org.hibernate.envers.RevisionEntity;
 import org.hibernate.envers.RevisionNumber;
 import org.hibernate.envers.RevisionTimestamp;
 
+import lombok.Data;
 
+@Data
 @Entity
 @RevisionEntity
 public class RevisionsEntity {
 
-
-	Long revisionId;
-
-
-	Date revisionDate;
-
 	@Id
 	@GeneratedValue
 	@RevisionNumber
-	public Long getRevisionId() {
-		return revisionId;
-	}
-
-	public void setRevisionId(Long revisionId) {
-		this.revisionId = revisionId;
-	}
+	Long revisionId;
 
 	@RevisionTimestamp
-	public Date getRevisionDate() {
-		return revisionDate;
-	}
-
-	public void setRevisionDate(Date revisionDate) {
-		this.revisionDate = revisionDate;
-	}
-
-
+	Date revisionDate;
 
 }
