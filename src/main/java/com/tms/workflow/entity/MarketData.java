@@ -1,5 +1,7 @@
 package com.tms.workflow.entity;
 
+import javax.persistence.Access;
+import javax.persistence.AccessType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Audited
-//@Access(AccessType.FIELD)
+@Access(AccessType.FIELD)
 @Table(name = "tt_cpty_market_data")
 public class MarketData {
 
