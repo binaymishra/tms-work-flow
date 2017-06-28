@@ -21,6 +21,7 @@ import lombok.Data;
 @Audited
 @Access(AccessType.FIELD)
 @Table(name = "tt_cpty")
+//@JsonInclude(value=Include.NON_EMPTY, content=Include.NON_NULL)
 public class CounterParty {
 
 	@Id
@@ -30,7 +31,6 @@ public class CounterParty {
 	String status;
 	String aladdinCode;
 	String approvedBy;
-
 
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
 	List<MarketData> marketDatas;

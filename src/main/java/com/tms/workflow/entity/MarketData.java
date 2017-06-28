@@ -14,6 +14,9 @@ import org.hibernate.envers.Audited;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.Data;
+
+@Data
 @Entity
 @Audited
 @Access(AccessType.FIELD)
