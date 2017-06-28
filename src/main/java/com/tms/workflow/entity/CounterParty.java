@@ -1,8 +1,7 @@
 package com.tms.workflow.entity;
 
 import java.util.List;
-import javax.persistence.Access;
-import javax.persistence.AccessType;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,37 +10,98 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 import org.hibernate.envers.Audited;
 
-
-import lombok.Data;
-
-@Data
 @Entity
 @Audited
-@Access(AccessType.FIELD)
+//@Access(AccessType.PROPERTY)
 @Table(name = "tt_cpty")
 public class CounterParty {
-	
-	@Id 
-	@GeneratedValue(strategy=GenerationType.AUTO)
+
 	Long id;
 	String name;
 	String status;
-	@Column(unique=true)
 	String aladdinCode;
 	String approvedBy;
-	
-	
+
+
+	List<MarketData> marketDatas;
+	List<MarketRating> marketRatings;
+	List<CounterPartyLimit> limits;
+
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	@Column(unique=true)
+	public String getAladdinCode() {
+		return aladdinCode;
+	}
+
+	public void setAladdinCode(String aladdinCode) {
+		this.aladdinCode = aladdinCode;
+	}
+
+	public String getApprovedBy() {
+		return approvedBy;
+	}
+
+	public void setApprovedBy(String approvedBy) {
+		this.approvedBy = approvedBy;
+	}
+
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
-	List<MarketData> marketDataSet;
-	
+	public List<MarketData> getMarketDatas() {
+		return marketDatas;
+	}
+
+	public void setMarketDatas(List<MarketData> marketDatas) {
+		this.marketDatas = marketDatas;
+	}
+
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
-	List<MarketRating> ratingSet;
-	
+	public List<MarketRating> getMarketRatings() {
+		return marketRatings;
+	}
+
+	public void setMarketRatings(List<MarketRating> marketRatings) {
+		this.marketRatings = marketRatings;
+	}
+
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
-	List<CounterPartyLimit> limitSet;
-	
-	
+	public List<CounterPartyLimit> getLimits() {
+		return limits;
+	}
+
+	public void setLimits(List<CounterPartyLimit> limits) {
+		this.limits = limits;
+	}
+
+
+
+
 
 }
