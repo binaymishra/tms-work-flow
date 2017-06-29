@@ -9,12 +9,12 @@ insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(
 insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(9, 'Bank of America',						'BNK009', 'sv@db.com', 'active', true);
 insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(10, 'Credit Agricole Group', 				'BNK010',  null, 'pending', false);
 
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id) values(1, 300, 	'credit_limit', 		'approved', 	'sv@db.com', 	1);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id) values(2, 100, 	'credit_limit', 		'approved', 	'sv@db.com', 	3);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id) values(3, 200, 	'credit_limit', 		'rejected', 	'bm@db.com', 	3);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id) values(4, 500, 	'fund_treasury_limit',  'pending', 		 null, 			2);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id) values(5, 600, 	'fund_treasury_limit',  'approved', 	'bh@db.com', 	9);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id) values(6, 1000, 	'fund_treasury_limit', 	'rejected', 	'su@db.com', 	7);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(1, 300, 	'credit_limit', 		'approved', 	'sv@db.com', 	1, true);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(2, 100, 	'credit_limit', 		'approved', 	'sv@db.com', 	3, true);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(3, 200, 	'credit_limit', 		'rejected', 	'bm@db.com', 	3, true);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(4, 500, 	'fund_treasury_limit',  'pending', 		 null, 			2, false);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(5, 600, 	'fund_treasury_limit',  'approved', 	'bh@db.com', 	9, true);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(6, 1000, 	'fund_treasury_limit', 	'rejected', 	'su@db.com', 	7, true);
 
 insert into tt_cpty_market_data(id, capacity, ticket_size, rounding_factor, currency, cp_id) values(1, 2000, 500, 25000, 'USD', 2);
 insert into tt_cpty_market_data(id, capacity, ticket_size, rounding_factor, currency, cp_id) values(2, 3000, 200, 25000, 'USD', 3);

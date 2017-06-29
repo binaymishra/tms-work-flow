@@ -31,6 +31,7 @@ public class CounterPartyLimit {
 	String cpLimitType;
 	String status;
 	String approvedBy;
+	Boolean enable;
 
 	@JsonIgnore //breaking infinite recursion
 	@ManyToOne
