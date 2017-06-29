@@ -31,6 +31,7 @@ public class CounterParty {
 	String status;
 	String aladdinCode;
 	String approvedBy;
+	Boolean enable;
 
 	@OneToMany(mappedBy = "counterParty", cascade = CascadeType.ALL)
 	List<MarketData> marketDatas;
