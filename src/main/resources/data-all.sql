@@ -1,20 +1,20 @@
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(1, 'Industrial & Commercial Bank of China', 'BNK001', 'bn@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(2, 'China Construction Bank Corp.', 		'BNK002', 'bm@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(3, 'Agricultural Bank of China', 			'BNK003', 'bn@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(4, 'Bank of China', 						'BNK004', 'bn@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(5, 'HSBC Holdings', 						'BNK005', 'sv@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(6, 'JPMorgan Chase & Co.', 					'BNK006', 'bv@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(7, 'BNP Paribas', 							'BNK007', 'bn@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(8, 'Mitsubishi UFJ Financial Group', 		'BNK008', 'ji@db.com', 'inactive', false);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(9, 'Bank of America',						'BNK009', 'sv@db.com', 'active', true);
-insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable) values(10, 'Credit Agricole Group', 				'BNK010',  null, 'pending', false);
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(1, 'Industrial & Commercial Bank of China', 'BNK001', 'bn@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(2, 'China Construction Bank Corp.', 		'BNK002', 'bm@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(3, 'Agricultural Bank of China', 			'BNK003', 'bn@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(4, 'Bank of China', 						'BNK004', 'bn@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(5, 'HSBC Holdings', 						'BNK005', 'sv@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(6, 'JPMorgan Chase & Co.', 					'BNK006', 'bv@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(7, 'BNP Paribas', 							'BNK007', 'bn@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(8, 'Mitsubishi UFJ Financial Group', 		'BNK008', 'ji@db.com', 'inactive', false, 'deleted');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(9, 'Bank of America',						'BNK009', 'sv@db.com', 'active', true, 'updated');
+insert into tt_cpty(id, name, aladdin_code, approved_by, status, enable, operation) values(10, 'Credit Agricole Group', 				'BNK010',  null, 'pending', false, 'created');
 
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(1, 300, 	'credit_limit', 		'approved', 	'sv@db.com', 	1, true);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(2, 100, 	'credit_limit', 		'approved', 	'sv@db.com', 	3, true);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(3, 200, 	'credit_limit', 		'rejected', 	'bm@db.com', 	3, true);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(4, 500, 	'fund_treasury_limit',  'pending', 		 null, 			2, false);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(5, 600, 	'fund_treasury_limit',  'approved', 	'bh@db.com', 	9, true);
-insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable) values(6, 1000, 	'fund_treasury_limit', 	'rejected', 	'su@db.com', 	7, true);
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable, operation) values(1, 300, 	'credit_limit', 		'approved', 	'sv@db.com', 	1, true, 'updated');
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable, operation) values(2, 100, 	'credit_limit', 		'approved', 	'sv@db.com', 	3, true, 'updated');
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable, operation) values(3, 200, 	'credit_limit', 		'rejected', 	'bm@db.com', 	3, true, 'updated');
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable, operation) values(4, 500, 	'fund_treasury_limit',  'pending', 		 null, 			2, false,'created');
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable, operation) values(5, 600, 	'fund_treasury_limit',  'approved', 	'bh@db.com', 	9, true, 'updated');
+insert into tt_cpty_limits(id, limits, cp_limit_type, status, approved_by, cp_id, enable, operation) values(6, 1000, 	'fund_treasury_limit', 	'rejected', 	'su@db.com', 	7, true, 'updated');
 
 insert into tt_cpty_market_data(id, capacity, ticket_size, rounding_factor, currency, cp_id) values(1, 2000, 500, 25000, 'USD', 2);
 insert into tt_cpty_market_data(id, capacity, ticket_size, rounding_factor, currency, cp_id) values(2, 3000, 200, 25000, 'USD', 3);
