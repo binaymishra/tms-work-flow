@@ -1,6 +1,7 @@
 package com.tms.workflow.model;
 
 import java.util.List;
+import java.util.Map;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -13,11 +14,19 @@ public class CounterPartyResponse {
 
 	List<CounterParty> counterParties;
 
+	Map<String, CounterParty> map;
+
 
 
 	public CounterPartyResponse() {
 		// Default constructor
 	}
+
+	public CounterPartyResponse(Map<String, CounterParty> map) {
+		this.map = map;
+	}
+
+
 
 	public CounterPartyResponse(List<CounterParty> counterParties) {
 		this.counterParties = counterParties;
@@ -43,6 +52,12 @@ public class CounterPartyResponse {
 		this.counterParties = counterParties;
 	}
 
+	public Map<String, CounterParty> getMap() {
+		return map;
+	}
 
+	public void setMap(Map<String, CounterParty> map) {
+		this.map = map;
+	}
 
 }

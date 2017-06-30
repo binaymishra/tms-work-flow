@@ -17,24 +17,23 @@ import com.tms.workflow.entity.CounterParty;
 @Repository("counterPartyRevisionRepo")
 @Transactional
 public class CounterPartyRevisionRepository {
-	
+
 	@PersistenceContext
     private EntityManager entityManager;
-	
-	@Autowired 
+
+	@Autowired
 	CounterPartyRepository repository;
-	
+
 	public List<CounterParty> finCounterPartyRevisions(Long id){
 		AuditReader auditReader = AuditReaderFactory.get(entityManager);
-		
 		List<Number> revisions = auditReader.getRevisions(CounterParty.class, id);
-		
-		List<CounterParty> cpRevisions = new ArrayList<>(); 
+		List<CounterParty> cpRevisions = new ArrayList<CounterParty>();
 		for (Number revision : revisions) {
-			cpRevisions.add(auditReader.find(CounterParty.class, id, revision));
+			CounterParty cp = auditReader.find(CounterParty.class, id, revision);
+			cpRevisions.add(cp);
 		}
 		return cpRevisions;
 	}
-	
+
 
 }

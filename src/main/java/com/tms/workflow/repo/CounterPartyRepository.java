@@ -14,4 +14,7 @@ public interface CounterPartyRepository extends JpaRepository<CounterParty, Long
 	@Query("select cp from CounterParty cp where cp.status = ?1")
 	List<CounterParty> findBystatus(String status);
 
+	@Query("select cp from CounterParty cp where cp.id = ?1")
+	CounterParty findOneCounterPartyById(Long id);
+
 }
